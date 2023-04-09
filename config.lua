@@ -39,6 +39,7 @@ lvim.format_on_save = {
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.insert_mode["<C-s>"] = "<Esc>:w<cr>"
 
 lvim.keys.insert_mode["jk"] = "<Esc>"
 lvim.keys.insert_mode["kj"] = "<Esc>"
@@ -61,7 +62,7 @@ lvim.builtin.which_key.mappings["t"] = {
 }
 
 -- -- Change theme settings
-lvim.colorscheme = "material"
+lvim.colorscheme =  "material"
 vim.g.material_style = "deep ocean"
 
 lvim.builtin.alpha.active = true
@@ -158,7 +159,7 @@ lvim.plugins = {
             auto_trigger = true,
             debounce = 75,
             keymap = {
-              accept = false,
+              accept = "<M-l>",
               accept_line = false,
               accept_word = false,
               next = "<M-]>",
@@ -275,6 +276,14 @@ lvim.plugins = {
           operators = {},
           types = {},
         },
+
+        
+
+        custom_colors = function(colors)
+          
+          colors.syntax.comments     = "#9298ad"
+
+        end,
       })
     end
   },
