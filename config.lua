@@ -61,7 +61,8 @@ lvim.builtin.which_key.mappings["t"] = {
 }
 
 -- -- Change theme settings
-lvim.colorscheme = "lunar"
+lvim.colorscheme = "material"
+vim.g.material_style = "deep ocean"
 
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
@@ -229,54 +230,54 @@ lvim.plugins = {
       }
     end
   },
-  -- {
-  --   "marko-cerovac/material.nvim",
-  --   config = function()
-  --     require('material').setup({
-  --       contrast = {
-  --         terminal = true,
-  --         sidebars = true,            -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
-  --         floating_windows = true,    -- Enable contrast for floating windows
-  --         cursor_line = true,         -- Enable darker background for the cursor line
-  --         non_current_windows = true, -- Enable darker background for non-current windows
-  --       },
-  --       plugins = {                   -- Uncomment the plugins that you use to highlight them
-  --         -- Available plugins:
-  --         -- "dap",
-  --         -- "dashboard",
-  --         -- "gitsigns",
-  --         "hop",
-  --         -- "indent-blankline",
-  --         -- "lspsaga",
-  --         -- "mini",
-  --         -- "neogit",
-  --         -- "neorg",
-  --         "nvim-cmp",
-  --         -- "nvim-navic",
-  --         "nvim-tree",
-  --         -- "nvim-web-devicons",
-  --         -- "sneak",
-  --         "telescope",
-  --         "trouble",
-  --         -- "which-key",
-  --       },
-  --       high_visibility = {
-  --         lighter = false, -- Enable higher contrast text for lighter style
-  --         darker = true    -- Enable higher contrast text for darker style
-  --       },
-  --       styles = {
-  --         -- Give comments style such as bold, italic, underline etc.
-  --         comments = { italic = true },
-  --         strings = { bold = true },
-  --         keywords = { underline = true },
-  --         functions = { bold = true, undercurl = true },
-  --         variables = {},
-  --         operators = {},
-  --         types = {},
-  --       },
-  --     })
-  --   end
-  -- },
+  {
+    "marko-cerovac/material.nvim",
+    config = function()
+      require('material').setup({
+        contrast = {
+          terminal = true,
+          sidebars = true,            -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
+          floating_windows = true,    -- Enable contrast for floating windows
+          cursor_line = true,         -- Enable darker background for the cursor line
+          non_current_windows = true, -- Enable darker background for non-current windows
+        },
+        plugins = {                   -- Uncomment the plugins that you use to highlight them
+          -- Available plugins:
+          -- "dap",
+          -- "dashboard",
+          -- "gitsigns",
+          "hop",
+          -- "indent-blankline",
+          -- "lspsaga",
+          -- "mini",
+          -- "neogit",
+          -- "neorg",
+          "nvim-cmp",
+          -- "nvim-navic",
+          "nvim-tree",
+          -- "nvim-web-devicons",
+          -- "sneak",
+          "telescope",
+          "trouble",
+          -- "which-key",
+        },
+        high_visibility = {
+          lighter = false, -- Enable higher contrast text for lighter style
+          darker = true    -- Enable higher contrast text for darker style
+        },
+        styles = {
+          -- give comments style such as bold, italic, underline etc.
+          comments = { italic = true },
+          strings = { bold = true },
+          keywords = { underline = true },
+          functions = { bold = true, undercurl = true },
+          variables = {},
+          operators = {},
+          types = {},
+        },
+      })
+    end
+  },
 
   {
     "sindrets/diffview.nvim",
