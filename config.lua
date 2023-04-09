@@ -281,7 +281,9 @@ lvim.plugins = {
 
         custom_colors = function(colors)
           
-          colors.syntax.comments     = "#9298ad"
+          colors.syntax.comments = "#9298ad"
+          colors.editor.fg =  "#dddfed"
+
 
         end,
       })
