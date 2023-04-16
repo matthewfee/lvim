@@ -22,7 +22,7 @@ if vim.fn.has('wsl') == 1 then
   })
 end
 
-vim.opt.timeoutlen = 100 -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.opt.timeoutlen = 0 -- time to wait for a mapped sequence to complete (in milliseconds)
 
 
 -- general
@@ -41,13 +41,14 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.insert_mode["<C-s>"] = "<Esc>:w<cr>"
 
-lvim.keys.insert_mode["jk"] = "<Esc>"
-lvim.keys.insert_mode["kj"] = "<Esc>"
 
 -- binding to restart LSP
 
 lvim.keys.normal_mode["<leader>rl"] = ":LspRestart<CR>"
 
+
+-- clear search on escape
+lvim.keys.normal_mode["<esc>"] = ":noh<cr><esc>"
 
 -- Use which-key to add extra bindings with the leader-key prefix
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
@@ -295,6 +296,9 @@ lvim.plugins = {
     event = "BufRead",
   },
 
+  {
+      "jdhao/better-escape.vim", event = "InsertEnter"
+  }
 }
 
 -- -- Autocommands (`:help autocmd`) <https://neovim.io/doc/user/autocmd.html>
