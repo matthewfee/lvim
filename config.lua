@@ -22,6 +22,7 @@ if vim.fn.has('wsl') == 1 then
 end
 
 vim.opt.timeoutlen = 0 -- time to wait for a mapped sequence to complete (in milliseconds)
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 
 -- general
@@ -61,6 +62,13 @@ lvim.builtin.which_key.mappings["t"] = {
   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 }
 
+lvim.builtin.which_key.mappings["S"] = {
+  name = "Session",
+  c = { "<cmd>lua require('persistence').load()<cr>", "Restore last session for current dir" },
+  l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
+  Q = { "<cmd>lua require('persistence').stop()<cr>", "Quit without saving session" },
+}
+
 -- -- Change theme settings
 lvim.colorscheme = "material"
 vim.g.material_style = "deep ocean"
@@ -76,6 +84,14 @@ lvim.builtin.treesitter.auto_install = true
 
 
 lvim.builtin.treesitter.highlight.enable = true
+lvim.builtin.project.detection_methods = { "lsp", "pattern" }
+lvim.builtin.project.patterns = {
+  ".git",
+  "package-lock.json",
+  "yarn.lock",
+  "package.json",
+  "requirements.txt",
+}
 
 -- lvim.builtin.treesitter.ignore_install = { "haskell" }
 
@@ -304,7 +320,18 @@ lvim.plugins = {
 
   {
     "jdhao/better-escape.vim", event = "InsertEnter"
-  }
+  },
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre",
+    config = function()
+      require("persistence").setup({
+        dir = vim.fn.expand(vim.fn.stdpath "state" .. "/sessions/"),
+        options = { "buffers", "curdir", "tabpages", "winsize" }
+      })
+    end
+  },
+
 }
 
 
