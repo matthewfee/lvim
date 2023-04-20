@@ -2,7 +2,6 @@
  THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
  `lvim` is the global options object
 ]]
-
 -- vim options
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
@@ -63,7 +62,7 @@ lvim.builtin.which_key.mappings["t"] = {
 }
 
 -- -- Change theme settings
-lvim.colorscheme =  "material"
+lvim.colorscheme = "material"
 vim.g.material_style = "deep ocean"
 
 lvim.builtin.alpha.active = true
@@ -133,6 +132,7 @@ lvim.plugins = {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
   },
+  { 'jose-elias-alvarez/typescript.nvim' },
   {
     "zbirenbaum/copilot.lua",
     event = { "VimEnter" },
@@ -277,15 +277,9 @@ lvim.plugins = {
           operators = {},
           types = {},
         },
-
-        
-
         custom_colors = function(colors)
-          
           colors.syntax.comments = "#9298ad"
-          colors.editor.fg =  "#dddfed"
-
-
+          colors.editor.fg = "#dddfed"
         end,
       })
     end
@@ -297,7 +291,7 @@ lvim.plugins = {
   },
 
   {
-      "jdhao/better-escape.vim", event = "InsertEnter"
+    "jdhao/better-escape.vim", event = "InsertEnter"
   }
 }
 
